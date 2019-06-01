@@ -31,6 +31,7 @@ Docmentation:
 
 
 # Arduino:
+- compile on ssh			link : https://www.youtube.com/watch?v=qAM2S27FWAI			comrntario: el nombre de la libreria tiene que tener el mimo nombre que el de la libreria
 
 
 

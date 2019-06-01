@@ -2,10 +2,30 @@
 # Version mejorada encontrada https://gist.github.com/hugs/4231272
 #https://stackoverrun.com/es/q/4950817
 #https://stackoverflow.com/questions/18162880/how-to-correctly-compute-direct-kinematics-for-a-delta-robot
+# connet to automaticly arduino  https://stackoverflow.com/questions/24214643/python-to-automatically-select-serial-ports-for-arduino
 import serial
+import serial.tools.list_ports
 import math
 import numpy
-ser = serial.Serial('/dev/ttyACM0', 115200)
+ports= list(serial.tools.list_ports.comports())
+conect = False
+for p in ports:
+    if(p[0].startswith('/dev/ttyACM')):
+        ser = serial.Serial(p[0], 115200,timeout = 0.3)
+        ser.close()
+        ser.open()
+        print(p[0])
+        print(p[1])
+        ser.write(bytes('V', encoding="UTF-8"))
+        xread = ser.readline()
+        print(xread.decode('UTF-8'))
+        if xread.decode('UTF-8') == "Be-DePlace\n":
+            print("se conecto")
+            conect = True
+            break
+        else:
+            ser.close()
+
 # datos del robot
 e = 196.58
 f = 256

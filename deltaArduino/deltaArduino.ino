@@ -24,6 +24,9 @@ const int interrupPin=2;
 int valorInnterruot=300;
 int pinapagado=9;
 int pinresep=3;
+
+void stop4axis();
+
 void setup()
 {
   Serial.begin(115200);
@@ -56,7 +59,7 @@ void lecturadatos(){
 void condicion1(){
       if (cadena[0] == 'V')
     {
-      Serial.println("Be-DePlace");
+      Serial.println("Be-DePlace\n");
       //Serial.println("SSC32");
     }
 }
