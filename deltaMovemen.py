@@ -27,10 +27,10 @@ for p in ports:
             ser.close()
 
 # datos del robot
-e = 196.58
-f = 256
-re = 349
-rf = 178.1
+e = 200
+f = 275.5
+re = 338.5
+rf = 175
 # constantes ocupadas
 sqrt3 = math.sqrt(3)
 pis = 3.141592653
@@ -166,9 +166,13 @@ def robotdeltaline(xx, yy, zz, cc, griper):
             pointList.append(angulo) 
             #submov(x4, y3, int(z4), cc, griper)
             if PX[0]<PX[1]:
-                x4=x4+1
+                x4=x4+10
+                if x4 >= PX[1]:
+                    x4 = PX[1]
             else:    
-                x4=x4-1
+                x4=x4-10
+                if x4 <= PX[1]:
+                    x4 = PX[1]
             if PZ[0]<PZ[1]:
                 z4=z4+(diferenciaz/diferenciax)
             else:
@@ -183,6 +187,7 @@ def robotdeltaline(xx, yy, zz, cc, griper):
         movedelta(point[0], point[1], point[2], cc, griper)
 
     return submov(xx, yy, zz, cc, griper)
+
 def robotdelta(xx, yy, zz, cc, griper):
     print("x:"+str(xx)+"y:"+str(yy)+"z:"+str(zz))
     PX[1] = xx
