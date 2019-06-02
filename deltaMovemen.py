@@ -147,6 +147,7 @@ def movedelta(angulo1, angulo2, angulo3, angulo4, griper):
 
 def robotdeltaline(xx, yy, zz, cc, griper):
     print("x:"+str(xx)+"y:"+str(yy)+"z:"+str(-zz))
+    pointList = []
     PX[1] = xx
     PY[1] = yy
     PZ[1] = zz
@@ -161,7 +162,9 @@ def robotdeltaline(xx, yy, zz, cc, griper):
         while x4!=PX[1]:
             y3 = equaline(x4)
             print("valor en x:\t"+str(x4)+"\n valor en y:\t"+str(y3) )
-            submov(x4, y3, int(z4), cc, griper)
+            angulo = cinematica_inv(x4, y3, int(z4))
+            pointList.append(angulo) 
+            #submov(x4, y3, int(z4), cc, griper)
             if PX[0]<PX[1]:
                 x4=x4+1
             else:    
@@ -174,6 +177,11 @@ def robotdeltaline(xx, yy, zz, cc, griper):
     PX[0] = PX[1]
     PY[0] = PY[1]
     PZ[0] = PZ[1]
+    angulo = cinematica_inv(xx, yy, zz)
+    pointList.append(angulo)
+    for point in pointList:
+        movedelta(point[0], point[1], point[2], cc, griper)
+
     return submov(xx, yy, zz, cc, griper)
 def robotdelta(xx, yy, zz, cc, griper):
     print("x:"+str(xx)+"y:"+str(yy)+"z:"+str(zz))
