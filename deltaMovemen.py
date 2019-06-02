@@ -7,6 +7,7 @@ import serial
 import serial.tools.list_ports
 import math
 import numpy
+from time import sleep
 ports= list(serial.tools.list_ports.comports())
 conect = False
 for p in ports:
@@ -17,6 +18,7 @@ for p in ports:
         print(p[0])
         print(p[1])
         ser.write(bytes('V', encoding="UTF-8"))
+        sleep(0.033)
         xread = ser.readline()
         print(xread.decode('UTF-8'))
         if xread.decode('UTF-8') == "Be-DePlace\n":
@@ -131,7 +133,7 @@ def cinematica_inv(x, y, z):
 
 
 def movedelta(angulo1, angulo2, angulo3, angulo4, griper):
-    astr = '#0 P'+angulo1+' #1 P'+angulo2+' #2 P'+angulo3+' #3 P'+angulo4 + ' #4 P'+griper
+    astr = '#0 P'+angulo1+' #1 P'+angulo2+' #2 P'+angulo3+' #3 P'+angulo4 + ' #4 P'+griper+'\n'
     # 0 P10 #1 P10 #2 P10 #3 P10 #4 P10
     print(astr)
     ser.write(bytes(astr, encoding="UTF-8"))
