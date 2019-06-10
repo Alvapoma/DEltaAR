@@ -19,7 +19,7 @@ float increment[5];
 float auxfl;
 float auxfl1[]={0,0,0,0,0};
 float vectP0[5];
-int ofset =9;
+int ofset =7;
 const int interrupPin=2;
 int valorInnterruot=300;
 int pinapagado=9;
@@ -107,9 +107,18 @@ void analisisdate(){
     if (toma)
     {
         P1[servo]=300;
-        if(servo <3 && Aux.toInt()<90 && Aux.toInt()>-90)
+        if(servo ==0 && Aux.toInt()<90 && Aux.toInt()>-90)
         {
-          P1[servo] = map(Aux.toInt(), 90+ofset, -90+ofset, SERVOMIN, SERVOMAX);
+          //P1[servo] = map(Aux.toInt()+ofset-3, 90, -90, SERVOMIN, SERVOMAX);
+          P1[servo] = map(Aux.toInt()+ofset-3, 40, -40, 200, 400);
+        }
+        if(servo ==1 && Aux.toInt()<90 && Aux.toInt()>-90)
+        {
+          P1[servo] = map(Aux.toInt()+ofset, 40, -40, 200, 400);
+        }
+        if(servo ==2 && Aux.toInt()<90 && Aux.toInt()>-90)
+        {
+          P1[servo] = map(Aux.toInt()+ofset-8, 40, -40, 200, 400);
         }
       if(servo==3  && Aux.toInt()>=0 && Aux.toInt()<360)
       {
