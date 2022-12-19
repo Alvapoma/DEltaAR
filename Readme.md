@@ -6,6 +6,9 @@ https://repositorio.espe.edu.ec/handle/21000/20708
 CAD realizado
 https://grabcad.com/library/robot-delta-educativo-1
 
+otros archivos que puedan intersar:
+https://drive.google.com/drive/folders/1Rif49oH5R24QhZnWDAG8xYIuiFBgozWA?usp=share_link
+
 # unity 
 
 Revisar carpeta unity
