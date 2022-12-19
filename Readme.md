@@ -1,6 +1,14 @@
 Docmentation:
+
+Tesis:
+https://repositorio.espe.edu.ec/handle/21000/20708
+
+CAD realizado
+https://grabcad.com/library/robot-delta-educativo-1
+
 # unity 
 
+Revisar carpeta unity
 
 ## rotation Quaternios 
 
